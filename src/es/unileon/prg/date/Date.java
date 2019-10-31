@@ -1,3 +1,4 @@
+package es.unileon.prg.date;
 
 class Date{
 
@@ -196,10 +197,10 @@ class Date{
 
 	public void cantidadMeses(){
 		int i=0;
-		System.out.println("Faltan "+(12-getMonth()+1)+" meses: ");
+		System.out.println("Falta estos "+(12-getMonth()+1)+" meses para que termine el año: ");
 		for (i=getMonth();i<13;i++){
 
-			System.out.println("El mes "+getMonthName2(i));
+			System.out.println("-El mes de: "+getMonthName2(i));
 
 		}
 
@@ -246,6 +247,12 @@ class Date{
 		}
 		return name;
 	}
+
+	@Override
+	public String toString() {
+		return "Date [_day=" + _day + ", _month=" + _month + ", _year=" + _year + "]";
+	}
+	
 
 }
 
