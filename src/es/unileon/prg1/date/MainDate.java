@@ -1,16 +1,17 @@
-package es.unileon.prg.date;
+package es.unileon.prg1.date;
+
 
 public class MainDate{
 
 
-	public static void main(String args[]){
+	public static void main(String args[]) throws DateExceptions{
 
-		/*Date fecha;
+		/*Date fecha= new Date(1, 1, 1);
 
 		try {
 			fecha = new Date(30, 10, 2019);
 			System.out.println(fecha.toString());
-		} catch (DateException e) {
+		} catch (DateExceptions e) {
 			System.out.println(e.getMessage());
 		}*/
 		Date fecha= new Date(30,10,2019);

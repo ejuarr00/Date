@@ -1,18 +1,23 @@
-package es.unileon.prg.date;
+package es.unileon.prg1.date;
 
+/**
+ * @author eduardojuarezrobles
+ *
+ */
 class Date{
 
 	private int _day;
 	private int _month;
 	private int _year;
 
-	public  Date(int day, int month, int year){
+	
+	public  Date(int day, int month, int year) throws DateExceptions{
 		/*if(_month<1 || _month>12){
-			throw new DateException ("Date error: valor "+ _month+ "no es valido. El valor debe estar entre 1 y 12");
+			throw new DateExceptions ("Date error: valor "+ _month+ " no es valido. El valor debe estar entre 1 y 12");
 		}else if(_day<1 || _day > this.daysOfMonth()){
-			throw new DateException ("Date error: valor "+ _day+ "no es valido. El valor debe estar entre 1 y 31");
-		}else if(_year<0){
-			throw new DateException ("Date error: valor "+ _year+ "no es valido. El valor debe ser mayor a uno");
+			throw new DateExceptions ("Date error: valor "+ _day+ " no es valido. El valor debe estar entre 1 y 31");
+		}else if(_year>0){
+			throw new DateExceptions ("Date error: valor "+ _year+ " no es valido. El valor debe ser mayor a uno");
 		}else{*/
 			this._day=day;
 			this._month=month;
@@ -20,6 +25,8 @@ class Date{
 		//}
 	}
 	
+	
+
 	public int getDay(){
 		return _day; 
 	}
@@ -31,7 +38,6 @@ class Date{
 	public int getYear(){
 		return _year; 
 	}
-
 
 	public boolean isSameYear(Date otherDate){
 		if (otherDate.getYear() == getYear()){
