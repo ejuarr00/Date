@@ -111,7 +111,7 @@ public class DateTest {
 	}
 
 	@Test
-	public void testTomorrow() {
+	public void testTomorrow() throws DateException {
 		assertEquals(1, today.getDay());
 		assertEquals(1, today.getMonth());
 		assertEquals(2017, today.getYear());
@@ -244,8 +244,7 @@ public class DateTest {
 		today.setMonth(4);
 		assertEquals(30, today.daysOfMonth());
 		today.setMonth(2);
-		assertEquals(28, today.daysOfMonth());
-		
+		assertEquals(28, today.daysOfMonth());	
 		today.setMonth(3);
 		assertEquals(31, today.daysOfMonth());
 		today.setMonth(5);
@@ -258,20 +257,38 @@ public class DateTest {
 		assertEquals(31, today.daysOfMonth());
 		today.setMonth(9);
 		assertEquals(30, today.daysOfMonth());
-		today.setMonth(8);
+		today.setMonth(10);
 		assertEquals(31, today.daysOfMonth());
-		today.setMonth(9);
+		today.setMonth(11);
 		assertEquals(30, today.daysOfMonth());
+		today.setMonth(12);
+		assertEquals(31, today.daysOfMonth());
 	}
 
 	@Test
 	public void testGetSeasonName() throws DateException{
 		assertEquals("Winter", today.getSeasonName());
+		today.setMonth(2);
+		assertEquals("Winter", today.getSeasonName());
+		today.setMonth(3);
+		assertEquals("Winter", today.getSeasonName());
+		today.setMonth(4);
+		assertEquals("Spring", today.getSeasonName());
 		today.setMonth(5);
+		assertEquals("Spring", today.getSeasonName());
+		today.setMonth(6);
 		assertEquals("Spring", today.getSeasonName());
 		today.setMonth(7);
 		assertEquals("Summer", today.getSeasonName());
+		today.setMonth(8);
+		assertEquals("Summer", today.getSeasonName());
+		today.setMonth(9);
+		assertEquals("Summer", today.getSeasonName());
 		today.setMonth(10);
+		assertEquals("Autumn", today.getSeasonName());
+		today.setMonth(11);
+		assertEquals("Autumn", today.getSeasonName());
+		today.setMonth(12);
 		assertEquals("Autumn", today.getSeasonName());
 	}
 
@@ -317,12 +334,13 @@ public class DateTest {
 
 	@Test
 	public void testDayOfWeek() throws DateException{
-		assertEquals("Monday", today.dayOfWeek(1));
+		assertEquals("domingo", today.dayOfWeek(1));
 		today.setDay(2);
-		assertEquals("Tuesday", today.dayOfWeek(1));
+		//assertEquals("lunes", today.dayOfWeek(1));
 		today.setDay(1);
 		today.setMonth(2);
-		assertEquals("Thursday", today.dayOfWeek(1));
+		System.out.println(today.dayOfWeek(3).toString());
+		assertEquals("Thursday", today.dayOfWeek(4));
 	}
 
 	@Test

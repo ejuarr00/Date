@@ -1,5 +1,8 @@
 package es.unileon.prg1.date;
 
+import java.util.Calendar;
+import java.text.DateFormatSymbols;
+
 /**
  * @author eduardojuarezrobles
  *
@@ -174,7 +177,7 @@ class Date{
 	public boolean isCorrectDays(){
 		return (getDay() > 0) && (getDay() <= daysOfMonth() );
 	}
-	public String estaciones(){
+	public String getSeasonName(){
 		String estacion =" ";
 		switch (getMonth()){
 		case 1: 
@@ -269,19 +272,29 @@ class Date{
 		}
 		return name;
 	}
+	
+	public Date tomorrow() throws DateException {
+		Date retorno= new Date(getDay()+1, getMonth(), getYear());
+		return retorno;
+	}
 
 	@Override
 	public String toString() {
 		//System.out.println(_day + "/" + _month + "/" + _year+"me cago en la hostia");
 		return _day + "/" + _month + "/" + _year;
 	}
-
+	
 
 	public Object dayOfWeek(int i) {
-		// TODO Apéndice de método generado automáticamente
-		return null;
+		Calendar calendar = Calendar.getInstance();
+		calendar.set(Calendar.YEAR, getYear());
+		calendar.set(Calendar.MONTH, getMonth());
+        calendar.set(Calendar.DAY_OF_YEAR, 365);
+		int weekday = calendar.get(Calendar.DAY_OF_WEEK);
+		DateFormatSymbols dfs = new DateFormatSymbols();
+		String dia= dfs.getWeekdays()[weekday];
+		return dia;
 	}
-
 
 
 	
