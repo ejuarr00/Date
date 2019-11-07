@@ -11,7 +11,7 @@ class Date{
 	private int _year;
 
 	
-	public  Date(int day, int month, int year) throws DateExceptions{
+	public  Date(int day, int month, int year) throws DateException{
 		/*if(_month<1 || _month>12){
 			throw new DateExceptions ("Date error: valor "+ _month+ " no es valido. El valor debe estar entre 1 y 12");
 		}else if(_day<1 || _day > this.daysOfMonth()){
@@ -25,18 +25,34 @@ class Date{
 		//}
 	}
 	
-	
+
+	public Date() throws DateException {
+		Date fecha= new Date(1,1,2017);
+	}
+
 
 	public int getDay(){
 		return _day; 
+	}
+
+	public void setDay(int _day) {
+		this._day = _day;
 	}
 
 	public int getMonth(){
 		return _month; 
 	}
 
+	public void setMonth(int _month) {
+		this._month = _month;
+	}
+
 	public int getYear(){
 		return _year; 
+	}
+
+	public void setYear(int _year) {
+		this._year = _year;
 	}
 
 	public boolean isSameYear(Date otherDate){
@@ -74,46 +90,46 @@ class Date{
 		String name =" ";
 		switch (getMonth()){
 		case 1:
-			name = "enero";
+			name = "January";
 			break;
 		case 2:
-			name = "febrero";
+			name = "February";
 			break;
 		case 3:
-			name = "marzo";
+			name = "March";
 			break;
 		case 4:
-			name = "abril";
+			name = "April";
 			break;
 		case 5:
-			name = "mayo";
+			name = "May";
 			break;
 		case 6:
-			name = "junio";
+			name = "June";
 			break;
 		case 7:
-			name = "julio";
+			name = "July";
 			break;
 		case 8:
-			name = "agosto";
+			name = "August";
 			break;
 		case 9:
-			name = "septiembre";
+			name = "September";
 			break;
 		case 10:
-			name = "octubre";
+			name = "October";
 			break;
 		case 11:
-			name = "noviembre";
+			name = "November";
 			break;
 		case 12:
-			name = "diciembre";
+			name = "December";
 			break;
 		}
 		return name;
 	}
 
-	private int daysOfMonth(){
+	public int daysOfMonth(){
 		int number = 0;
 		switch (getMonth()){
 		case 1: 
@@ -215,40 +231,40 @@ class Date{
 		String name =" ";
 		switch (meses){
 		case 1:
-			name = "enero";
+			name = "January";
 			break;
 		case 2:
-			name = "febrero";
+			name = "February";
 			break;
 		case 3:
-			name = "marzo";
+			name = "March";
 			break;
 		case 4:
-			name = "abril";
+			name = "April";
 			break;
 		case 5:
-			name = "mayo";
+			name = "May";
 			break;
 		case 6:
-			name = "junio";
+			name = "June";
 			break;
 		case 7:
-			name = "julio";
+			name = "July";
 			break;
 		case 8:
-			name = "agosto";
+			name = "August";
 			break;
 		case 9:
-			name = "septiembre";
+			name = "September";
 			break;
 		case 10:
-			name = "octubre";
+			name = "October";
 			break;
 		case 11:
-			name = "noviembre";
+			name = "November";
 			break;
 		case 12:
-			name = "diciembre";
+			name = "December";
 			break;
 		}
 		return name;
@@ -256,8 +272,18 @@ class Date{
 
 	@Override
 	public String toString() {
-		return "Date [_day=" + _day + ", _month=" + _month + ", _year=" + _year + "]";
+		//System.out.println(_day + "/" + _month + "/" + _year+"me cago en la hostia");
+		return _day + "/" + _month + "/" + _year;
 	}
+
+
+	public Object dayOfWeek(int i) {
+		// TODO Apéndice de método generado automáticamente
+		return null;
+	}
+
+
+
 	
 
 }

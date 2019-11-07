@@ -4,7 +4,7 @@ package es.unileon.prg1.date;
 public class MainDate{
 
 
-	public static void main(String args[]) throws DateExceptions{
+	public static void main(String args[]) throws DateException{
 
 		/*Date fecha= new Date(1, 1, 1);
 
@@ -14,7 +14,7 @@ public class MainDate{
 		} catch (DateExceptions e) {
 			System.out.println(e.getMessage());
 		}*/
-		Date fecha= new Date(30,10,2019);
+		Date fecha= new Date(1,1,2017);
 		Date fecha2= new Date(31,10,2019);
 
 		System.out.println("Son el mismo año "+ fecha.getYear()+" y "+ fecha2.getYear()+ ": " +fecha.isSameYear(fecha2));
@@ -24,6 +24,7 @@ public class MainDate{
 		System.out.println("El mes numerico "+ fecha.getMonth()+ " es: "+fecha.getMonthName());
 		System.out.println("El dia es: "+fecha.isCorrectDays());
 		System.out.println("La estacion de la fecha "+ fecha.getMonthName()+ " es: "+fecha.estaciones());
+		
 		fecha.cantidadMeses();
 	}
 }
