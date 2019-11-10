@@ -23,7 +23,7 @@ public class MainDate{
 		System.out.println("Son iguales las fechas: "+fecha.isSame(fecha2));
 		System.out.println("El mes numerico "+ fecha.getMonth()+ " es: "+fecha.getMonthName());
 		System.out.println("El dia es: "+fecha.isCorrectDays());
-		System.out.println("La estacion de la fecha "+ fecha.getMonthName()+ " es: "+fecha.estaciones());
+		System.out.println("La estacion de la fecha "+ fecha.getMonthName()+ " es: "+fecha.getSeasonName());
 		
 		fecha.cantidadMeses();
 	}

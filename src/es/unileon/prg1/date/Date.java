@@ -34,7 +34,10 @@ class Date{
 	}
 
 
-	public int getDay(){
+	public int getDay() throws DateException{
+		if(_day<1 || _day > this.daysOfMonth()){
+			throw new DateException ("Date error: valor "+ _day+ " no es valido. El valor debe estar entre 1 y 31");
+		}
 		return _day; 
 	}
 
@@ -42,7 +45,10 @@ class Date{
 		this._day = _day;
 	}
 
-	public int getMonth(){
+	public int getMonth() throws DateException{
+		if(_month<1 || _month>12){
+			throw new DateException ("Date error: valor "+ _month+ " no es valido. El valor debe estar entre 1 y 12");
+		}
 		return _month; 
 	}
 
@@ -50,7 +56,10 @@ class Date{
 		this._month = _month;
 	}
 
-	public int getYear(){
+	public int getYear() throws DateException{
+		if(_year<0){
+			throw new DateException ("Date error: valor "+ _year+ " no es valido. El valor debe ser mayor a uno");
+		}
 		return _year; 
 	}
 
@@ -58,7 +67,7 @@ class Date{
 		this._year = _year;
 	}
 
-	public boolean isSameYear(Date otherDate){
+	public boolean isSameYear(Date otherDate) throws DateException{
 		if (otherDate.getYear() == getYear()){
 			return true;
 		}else{
@@ -66,7 +75,7 @@ class Date{
 		}
 	}
 
-	public boolean isSameMonth(Date otherDate){
+	public boolean isSameMonth(Date otherDate) throws DateException{
 		if (otherDate.getMonth()  == getMonth()){
 			return true;
 		}else{
@@ -74,7 +83,7 @@ class Date{
 		}
 	}
 
-	public boolean isSameDay(Date otherDate){
+	public boolean isSameDay(Date otherDate) throws DateException{
 		if (otherDate.getDay() == getDay()){
 			return true;
 		}else{
@@ -82,14 +91,14 @@ class Date{
 		}
 	}
 
-	public boolean isSame(Date otherDate){
+	public boolean isSame(Date otherDate) throws DateException{
 		if (isSameYear(otherDate) && isSameMonth(otherDate) && isSameDay(otherDate) ){
 			return true;
 		}
 		return false;
 
 	}
-	public String getMonthName(){
+	public String getMonthName() throws DateException{
 		String name =" ";
 		switch (getMonth()){
 		case 1:
@@ -132,7 +141,7 @@ class Date{
 		return name;
 	}
 
-	public int daysOfMonth(){
+	public int daysOfMonth() throws DateException{
 		int number = 0;
 		switch (getMonth()){
 		case 1: 
@@ -174,10 +183,10 @@ class Date{
 		}
 		return number;
 	}
-	public boolean isCorrectDays(){
+	public boolean isCorrectDays() throws DateException{
 		return (getDay() > 0) && (getDay() <= daysOfMonth() );
 	}
-	public String getSeasonName(){
+	public String getSeasonName() throws DateException{
 		String estacion =" ";
 		switch (getMonth()){
 		case 1: 
@@ -220,7 +229,7 @@ class Date{
 		return estacion;
 	}
 
-	public void cantidadMeses(){
+	public void cantidadMeses() throws DateException{
 		int i=0;
 		System.out.println("Falta estos "+(12-getMonth()+1)+" meses para que termine el año: ");
 		for (i=getMonth();i<13;i++){
@@ -285,7 +294,7 @@ class Date{
 	}
 	
 
-	public Object dayOfWeek(int i) {
+	public Object dayOfWeek(int i) throws DateException {
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.YEAR, getYear());
 		calendar.set(Calendar.MONTH, getMonth());
